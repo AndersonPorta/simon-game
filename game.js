@@ -1,8 +1,11 @@
+// Array of button colors
 var colors = ["green", "red", "yellow", "blue"];
 
+// Each array will store patterns
 var gamePattern = [];
 var userClickedPattern = [];
 
+// Globa vars
 var started = false;
 var level = 0;
 
@@ -13,10 +16,9 @@ $(document).keydown(function (e) {
         nextSequence();
         started = true;
     }
-
 })
 
-// Add to array what color pressed the user
+// Start game by letting user click on the buttons.
 $(".btn").click(function () {
     var userChosenColor = this.id;
     userClickedPattern.push(userChosenColor);
@@ -60,7 +62,7 @@ function animatePress(currentColor) {
 // Check answer
 function checkAnswer(currentLevel) {
     if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
-        if(userClickedPattern.length === gamePattern.length) {
+        if (userClickedPattern.length === gamePattern.length) {
             setTimeout(() => {
                 nextSequence();
                 userClickedPattern.length = 0;
